@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://asseco.pl/xml/rpm/typyRejestr/2011/04/08/" xmlns:typ="http://asseco.pl/xml/rpm/typyRejestr/2011/04/08/" xmlns:ks="http://asseco.pl/xml/rpm/ksiegaPodmiot/2011/04/08/" xmlns:adr="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" xmlns:oso="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/">
-  <xs:import schemaLocation="local.xsd"/>
-  <xs:import namespace="http://asseco.pl/xml/rpm/ksiegaPodmiot/2011/04/08/" schemaLocation="ks.xsd"/>
-  <xs:import namespace="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" schemaLocation="adr.xsd"/>
-  <xs:import namespace="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/" schemaLocation="oso.xsd"/>
+  <xs:import schemaLocation="https://raw.githubusercontent.com/lagtukov/mrc/master/local.xsd"/>
+  <xs:import namespace="http://asseco.pl/xml/rpm/ksiegaPodmiot/2011/04/08/" schemaLocation="https://raw.githubusercontent.com/lagtukov/mrc/master/ks.xsd"/>
+  <xs:import namespace="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" schemaLocation="https://raw.githubusercontent.com/lagtukov/mrc/master/adr.xsd"/>
+  <xs:import namespace="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/" schemaLocation="https://raw.githubusercontent.com/lagtukov/mrc/master/oso.xsd"/>
   <xs:element name="InformacjeOWpisie">
     <xs:complexType>
       <xs:sequence>
