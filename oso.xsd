@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/" xmlns:typ="http://asseco.pl/xml/rpm/typyRejestr/2011/04/08/" xmlns:ks="http://asseco.pl/xml/rpm/ksiegaPodmiot/2011/04/08/" xmlns:adr="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" xmlns:oso="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://asseco.pl/xml/rpm/ksiegaPodmiot/2011/04/08/" schemaLocation="ks.xsd"/>
+  <xs:import namespace="http://asseco.pl/xml/rpm/typyRejestr/2011/04/08/" schemaLocation="Wpisy_Rpm.xsd"/>
+  <xs:import namespace="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" schemaLocation="adr.xsd"/>
+  <xs:element name="Imie" type="xs:string"/>
+  <xs:element name="Nazwisko">
+    <xs:complexType mixed="true">
+      <xs:attribute name="rodzajCzlonu" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CzyPrzedstawiciel" type="xs:boolean"/>
+</xs:schema>

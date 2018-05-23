@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" xmlns:typ="http://asseco.pl/xml/rpm/typyRejestr/2011/04/08/" xmlns:ks="http://asseco.pl/xml/rpm/ksiegaPodmiot/2011/04/08/" xmlns:adr="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" xmlns:oso="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/">
+  <xs:import namespace="http://asseco.pl/xml/rpm/ksiegaPodmiot/2011/04/08/" schemaLocation="ks.xsd"/>
+  <xs:import namespace="http://asseco.pl/xml/rpm/typyRejestr/2011/04/08/" schemaLocation="Wpisy_Rpm.xsd"/>
+  <xs:import namespace="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" schemaLocation="adr.xsd"/>
+  <xs:import namespace="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/" schemaLocation="oso.xsd"/>
+  <xs:element name="wpisy">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" name="wpis">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element ref="ks:Dokument"/>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://asseco.pl/xml/rpm/ksiegaPodmiot/2011/04/08/" xmlns:typ="http://asseco.pl/xml/rpm/typyRejestr/2011/04/08/" xmlns:ks="http://asseco.pl/xml/rpm/ksiegaPodmiot/2011/04/08/" xmlns:adr="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" xmlns:oso="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://asseco.pl/xml/rpm/typyRejestr/2011/04/08/" schemaLocation="Wpisy_Rpm.xsd"/>
+  <xs:import namespace="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" schemaLocation="adr.xsd"/>
+  <xs:import namespace="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/" schemaLocation="oso.xsd"/>
+  <xs:element name="Dokument">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="ks:OpisDokumentu"/>
+          <xs:element ref="ks:DaneDokumentu"/>
+        </xs:sequence>
+        <xs:element ref="ks:TrescDokumentu"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OpisDokumentu">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="DaneDokumentu">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="TrescDokumentu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="ks:TrescPodmiot"/>
+      </xs:sequence>
+      <xs:attribute name="format"/>
+      <xs:attribute name="kodowanie" type="xs:NCName"/>
+      <xs:attribute name="rodzaj" type="xs:NCName"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TrescPodmiot">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="typ:InformacjeOWpisie"/>
+        <xs:element ref="typ:InformacjaOWykresleniu"/>
+        <xs:element ref="typ:Dzial1"/>
+        <xs:element ref="typ:Dzial2"/>
+        <xs:element ref="typ:Dzial3"/>
+        <xs:element minOccurs="0" ref="typ:Oswiadczenie"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="typ:OswiadczenieTresc"/>
+          <xs:element ref="typ:OswiadczenieData"/>
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

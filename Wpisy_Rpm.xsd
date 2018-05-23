@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://asseco.pl/xml/rpm/typyRejestr/2011/04/08/" xmlns:typ="http://asseco.pl/xml/rpm/typyRejestr/2011/04/08/" xmlns:ks="http://asseco.pl/xml/rpm/ksiegaPodmiot/2011/04/08/" xmlns:adr="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" xmlns:oso="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://asseco.pl/xml/rpm/ksiegaPodmiot/2011/04/08/" schemaLocation="ks.xsd"/>
+  <xs:import namespace="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" schemaLocation="adr.xsd"/>
+  <xs:import namespace="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/" schemaLocation="oso.xsd"/>
+  <xs:element name="InformacjeOWpisie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="typ:RodzajRejestru"/>
+        <xs:element ref="typ:DataWpisu"/>
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+          <xs:element ref="typ:DataWystawieniaZaswiadczenia"/>
+          <xs:element ref="typ:DataZmianyWpisu"/>
+          <xs:element ref="typ:NumerZaswiadczenia"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RodzajRejestru" type="xs:NCName"/>
+  <xs:element name="DataWpisu" type="xs:string"/>
+  <xs:element name="DataWystawieniaZaswiadczenia" type="xs:date"/>
+  <xs:element name="DataZmianyWpisu" type="xs:string"/>
+  <xs:element name="NumerZaswiadczenia" type="xs:NCName"/>
+  <xs:element name="InformacjaOWykresleniu">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="typ:DataDecyzjiOWykresleniu"/>
+        <xs:element minOccurs="0" ref="typ:NumerDecyzji"/>
+        <xs:element minOccurs="0" ref="typ:AdresDokumentacji"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DataDecyzjiOWykresleniu" type="xs:string"/>
+  <xs:element name="NumerDecyzji" type="xs:string"/>
+  <xs:element name="AdresDokumentacji">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="adr:KodPocztowy"/>
+        <xs:element minOccurs="0" ref="adr:Poczta"/>
+        <xs:element ref="adr:Miejscowosc"/>
+        <xs:element ref="adr:Ulica"/>
+        <xs:element ref="adr:Budynek"/>
+        <xs:element ref="adr:Lokal"/>
+        <xs:element minOccurs="0" ref="adr:SkrytkaPocztowa"/>
+        <xs:element minOccurs="0" ref="adr:TERC"/>
+        <xs:element minOccurs="0" ref="adr:ULIC"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Dzial1">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="typ:NumerKsiegi"/>
+        <xs:element ref="typ:OznaczenieOrganu"/>
+        <xs:element ref="typ:KodWojewody"/>
+        <xs:element ref="typ:FirmaImieNazwiskoPodmiotu"/>
+        <xs:element ref="typ:AdresSiedzibyZamieszkania"/>
+        <xs:element ref="typ:Danekontaktowe"/>
+        <xs:element minOccurs="0" ref="typ:TerytSiedziby"/>
+        <xs:element minOccurs="0" ref="typ:NumerWpisuEwidencjiGosp"/>
+        <xs:element ref="typ:NumerREGON"/>
+        <xs:element ref="typ:NumerNIP"/>
+        <xs:element ref="typ:FormaOrganizacyjnoPrawna"/>
+        <xs:element ref="typ:KodPodmiotuTworzacego"/>
+        <xs:element ref="typ:NazwaPodmiotuTworzacego"/>
+        <xs:choice maxOccurs="unbounded">
+          <xs:element ref="typ:DataRozpoczeciaDzialalnosci"/>
+          <xs:element ref="typ:DataZakonczeniaDzialalnosci"/>
+          <xs:element ref="typ:ListaCzasowychZawieszen"/>
+          <xs:element ref="typ:DataRozpoczeciaDzialalnosciArt104"/>
+          <xs:element ref="typ:ListaAkredytacjiJakosci"/>
+          <xs:element ref="typ:ListaAkredytacjiKsztalcenie"/>
+          <xs:element ref="typ:ListaKontroli"/>
+          <xs:element ref="typ:ListaWspolnikow"/>
+        </xs:choice>
+        <xs:element ref="typ:ListaUbezpieczen"/>
+        <xs:element ref="typ:ListaPrzedsiebiorstw"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumerKsiegi" type="xs:integer"/>
+  <xs:element name="OznaczenieOrganu">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="typ:typ.Kod">
+          <xs:sequence>
+            <xs:element ref="typ:Opis"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KodWojewody">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="typ:typ.Kod">
+          <xs:sequence>
+            <xs:element ref="typ:Opis"/>
+          </xs:sequence>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FirmaImieNazwiskoPodmiotu" type="xs:string"/>
+  <xs:element name="AdresSiedzibyZamieszkania">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="adr:KodPocztowy"/>
+        <xs:element minOccurs="0" ref="adr:Poczta"/>
+        <xs:element minOccurs="0" ref="adr:Miejscowosc"/>
+        <xs:element ref="adr:Ulica"/>
+        <xs:element minOccurs="0" ref="adr:Budynek"/>
+        <xs:element minOccurs="0" ref="adr:Lokal"/>
+        <xs:element minOccurs="0" ref="adr:SkrytkaPocztowa"/>
+        <xs:element minOccurs="0" ref="adr:TERC"/>
+        <xs:element minOccurs="0" ref="adr:ULIC"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TerytSiedziby" type="xs:string"/>
+  <xs:element name="NumerWpisuEwidencjiGosp">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="NumerNIP" type="xs:string"/>
+  <xs:element name="FormaOrganizacyjnoPrawna" type="typ:typ.Kod"/>
+  <xs:element name="KodPodmiotuTworzacego" type="typ:typ.Kod"/>
+  <xs:element name="NazwaPodmiotuTworzacego" type="xs:string"/>
+  <xs:element name="DataRozpoczeciaDzialalnosciArt104" type="xs:string"/>
+  <xs:element name="ListaAkredytacjiJakosci">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="typ:Akredytacja"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaAkredytacjiKsztalcenie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="typ:Akredytacja"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaKontroli">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="typ:Kontrola"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kontrola">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="typ:DataPrzeprowadzenia"/>
+        <xs:element ref="typ:Wynik"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DataPrzeprowadzenia" type="xs:date"/>
+  <xs:element name="Wynik" type="xs:string"/>
+  <xs:element name="ListaWspolnikow">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="typ:Wspolnik"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Wspolnik">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="typ:Osoba"/>
+        <xs:element minOccurs="0" ref="typ:CzyPrzedstawiciel"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CzyPrzedstawiciel" type="xs:boolean"/>
+  <xs:element name="ListaUbezpieczen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="typ:Ubezpieczenie"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Ubezpieczenie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="typ:Osoba"/>
+        <xs:element ref="typ:OkresOd"/>
+        <xs:element ref="typ:OkresDo"/>
+        <xs:element ref="typ:ZakresUbezpieczenia"/>
+        <xs:element ref="typ:SumaGwarancyjna"/>
+        <xs:element ref="typ:SumaUbezpieczenia"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ZakresUbezpieczenia" type="xs:string"/>
+  <xs:element name="SumaGwarancyjna">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="typ:Waluta"/>
+        <xs:element ref="typ:Kwota"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SumaUbezpieczenia">
+    <xs:complexType>
+      <xs:sequence minOccurs="0">
+        <xs:element ref="typ:Waluta"/>
+        <xs:element ref="typ:Kwota"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaPrzedsiebiorstw">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="typ:Przedsiebiorstwo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Przedsiebiorstwo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="typ:Nazwa"/>
+        <xs:element ref="typ:Adres"/>
+        <xs:element ref="typ:Danekontaktowe"/>
+        <xs:element ref="typ:NumerREGON"/>
+        <xs:element ref="typ:RodzajDzialalnosciLeczniczej"/>
+        <xs:element ref="typ:DataRozpoczeciaDzialalnosci"/>
+        <xs:element ref="typ:DataZakonczeniaDzialalnosci"/>
+        <xs:element ref="typ:ListaCzasowychZawieszen"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RodzajDzialalnosciLeczniczej">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="typ:KodResort"/>
+        <xs:element minOccurs="0" ref="typ:Opis"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Dzial2">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="typ:ListaJednostek"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaJednostek">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="typ:Jednostka"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Jednostka">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="typ:Nazwa"/>
+        <xs:element ref="typ:Adres"/>
+        <xs:element ref="typ:Danekontaktowe"/>
+        <xs:element minOccurs="0" ref="typ:Teryt"/>
+        <xs:element ref="typ:NumerREGON"/>
+        <xs:element ref="typ:KodIdentyfikujacyJednostke"/>
+        <xs:element ref="typ:ZakresSwiadczen"/>
+        <xs:element ref="typ:DataRozpoczeciaDzialalnosci"/>
+        <xs:element ref="typ:DataZakonczeniaDzialalnosci"/>
+        <xs:element ref="typ:ListaCzasowychZawieszen"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KodIdentyfikujacyJednostke" type="xs:integer"/>
+  <xs:element name="Dzial3">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="typ:ListaKomorek"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListaKomorek">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="typ:Komorka"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Komorka">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="typ:KodIdentyfikujacyKomorke"/>
+        <xs:element ref="typ:KodJednostki"/>
+        <xs:element ref="typ:Nazwa"/>
+        <xs:element ref="typ:Adres"/>
+        <xs:element ref="typ:Danekontaktowe"/>
+        <xs:element minOccurs="0" ref="typ:Teryt"/>
+        <xs:element ref="typ:NumerREGON"/>
+        <xs:element ref="typ:DataRozpoczeciaDzialalnosci"/>
+        <xs:element ref="typ:DataZakonczeniaDzialalnosci"/>
+        <xs:element ref="typ:ListaCzasowychZawieszen"/>
+        <xs:element ref="typ:SpecjalnoscKomorki"/>
+        <xs:element ref="typ:ZakresSwiadczen"/>
+        <xs:element minOccurs="0" ref="typ:LiczbaLozek"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="typ:LiczbaLozekIntensywnejOpieki"/>
+          <xs:element ref="typ:LiczbaLozekIntensywnegoNadzoru"/>
+          <xs:element ref="typ:LiczbaLozekDlaNoworodkow"/>
+          <xs:element ref="typ:LiczbaInkubatorow"/>
+          <xs:element ref="typ:LiczbaStanowiskDializ"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="typ:LiczbaMiejscDziennych"/>
+        <xs:element minOccurs="0" ref="typ:DataDostosowaniaPomieszczen"/>
+        <xs:element minOccurs="0" ref="typ:Uwagi"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KodIdentyfikujacyKomorke" type="xs:string"/>
+  <xs:element name="KodJednostki" type="xs:string"/>
+  <xs:element name="SpecjalnoscKomorki">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="typ:KodResort"/>
+        <xs:element minOccurs="0" ref="typ:Opis"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LiczbaLozek" type="xs:integer"/>
+  <xs:element name="LiczbaLozekIntensywnejOpieki" type="xs:integer"/>
+  <xs:element name="LiczbaLozekIntensywnegoNadzoru" type="xs:integer"/>
+  <xs:element name="LiczbaLozekDlaNoworodkow" type="xs:integer"/>
+  <xs:element name="LiczbaInkubatorow" type="xs:integer"/>
+  <xs:element name="LiczbaStanowiskDializ" type="xs:integer"/>
+  <xs:element name="LiczbaMiejscDziennych" type="xs:integer"/>
+  <xs:element name="DataDostosowaniaPomieszczen">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="Uwagi">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="Oswiadczenie" type="xs:boolean"/>
+  <xs:element name="OswiadczenieTresc" type="xs:string"/>
+  <xs:element name="OswiadczenieData" type="xs:string"/>
+  <xs:complexType name="typ.Kod">
+    <xs:sequence>
+      <xs:element ref="typ:Kod"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Kod">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="typ:KodResort"/>
+        <xs:element ref="typ:Opis"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Opis" type="xs:string"/>
+  <xs:element name="Danekontaktowe">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="adr:URIKontakt"/>
+        <xs:element ref="adr:Telefon"/>
+        <xs:element ref="adr:Email"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NumerREGON" type="xs:string"/>
+  <xs:element name="DataRozpoczeciaDzialalnosci" type="xs:string"/>
+  <xs:element name="DataZakonczeniaDzialalnosci" type="xs:string"/>
+  <xs:element name="Osoba">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="oso:Imie"/>
+          <xs:element ref="oso:Nazwisko"/>
+        </xs:sequence>
+        <xs:element minOccurs="0" ref="adr:Adres"/>
+        <xs:element minOccurs="0" ref="typ:Danekontaktowe"/>
+        <xs:choice minOccurs="0">
+          <xs:element ref="adr:Kontakt"/>
+          <xs:element ref="oso:CzyPrzedstawiciel"/>
+        </xs:choice>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Akredytacja">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="typ:DataWydania"/>
+        <xs:element ref="typ:ZakresAkredytacji"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DataWydania" type="xs:date"/>
+  <xs:element name="ZakresAkredytacji" type="xs:string"/>
+  <xs:element name="ListaCzasowychZawieszen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="typ:CzasoweZawieszenie"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CzasoweZawieszenie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="typ:OkresOd"/>
+        <xs:element ref="typ:OkresDo"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="OkresOd" type="xs:date"/>
+  <xs:element name="OkresDo" type="xs:date"/>
+  <xs:element name="Waluta" type="xs:string"/>
+  <xs:element name="Kwota" type="xs:string"/>
+  <xs:element name="Nazwa" type="xs:string"/>
+  <xs:element name="Adres">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="adr:KodPocztowy"/>
+        <xs:element minOccurs="0" ref="adr:Poczta"/>
+        <xs:element ref="adr:Miejscowosc"/>
+        <xs:element ref="adr:Ulica"/>
+        <xs:element minOccurs="0" ref="adr:Budynek"/>
+        <xs:element minOccurs="0" ref="adr:Lokal"/>
+        <xs:element minOccurs="0" ref="adr:SkrytkaPocztowa"/>
+        <xs:element ref="adr:TERC"/>
+        <xs:element minOccurs="0" ref="adr:ULIC"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="KodResort" type="xs:string"/>
+  <xs:element name="Teryt" type="xs:string"/>
+  <xs:element name="ZakresSwiadczen">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="typ:Swiadczenie"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Swiadczenie">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="typ:FunkcjaOchronyZdrowiaIXcz"/>
+        <xs:element ref="typ:DziedzinaMedycznaXcz"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="FunkcjaOchronyZdrowiaIXcz">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="typ:KodResort"/>
+        <xs:element minOccurs="0" ref="typ:Opis"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DziedzinaMedycznaXcz">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" ref="typ:KodResort"/>
+        <xs:element minOccurs="0" ref="typ:Opis"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

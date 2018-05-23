@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" xmlns:typ="http://asseco.pl/xml/rpm/typyRejestr/2011/04/08/" xmlns:ks="http://asseco.pl/xml/rpm/ksiegaPodmiot/2011/04/08/" xmlns:adr="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" xmlns:oso="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/">
+  <xs:import schemaLocation="local.xsd"/>
+  <xs:import namespace="http://asseco.pl/xml/rpm/ksiegaPodmiot/2011/04/08/" schemaLocation="ks.xsd"/>
+  <xs:import namespace="http://asseco.pl/xml/rpm/typyRejestr/2011/04/08/" schemaLocation="Wpisy_Rpm.xsd"/>
+  <xs:import namespace="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/" schemaLocation="oso.xsd"/>
+  <xs:element name="KodPocztowy" type="xs:string"/>
+  <xs:element name="Poczta" type="xs:string"/>
+  <xs:element name="Miejscowosc" type="xs:string"/>
+  <xs:element name="Ulica">
+    <xs:complexType>
+      <xs:simpleContent>
+        <xs:extension base="xs:anyURI">
+          <xs:attribute name="rodzajUlicy" type="xs:NCName"/>
+        </xs:extension>
+      </xs:simpleContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Budynek" type="xs:string"/>
+  <xs:element name="Lokal" type="xs:string"/>
+  <xs:element name="SkrytkaPocztowa" type="xs:string"/>
+  <xs:element name="TERC" type="xs:string"/>
+  <xs:element name="ULIC" type="xs:string"/>
+  <xs:element name="Adres">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="adr:KodPocztowy"/>
+        <xs:element ref="adr:Poczta"/>
+        <xs:element ref="adr:Miejscowosc"/>
+        <xs:element ref="adr:Ulica"/>
+        <xs:element ref="adr:Budynek"/>
+        <xs:element ref="adr:Lokal"/>
+        <xs:element ref="adr:SkrytkaPocztowa"/>
+        <xs:element ref="adr:TERC"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Kontakt">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="adr:URIKontakt"/>
+        <xs:element ref="adr:Telefon"/>
+        <xs:element ref="adr:Email"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="URIKontakt" type="xs:string"/>
+  <xs:element name="Telefon" type="xs:string"/>
+  <xs:element name="Email" type="xs:string"/>
+</xs:schema>
