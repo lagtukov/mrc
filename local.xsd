@@ -4,7 +4,7 @@
   <xs:import namespace="http://asseco.pl/xml/rpm/typyRejestr/2011/04/08/" schemaLocation="https://raw.githubusercontent.com/lagtukov/mrc/master/Wpisy_Rpm.xsd"/>
   <xs:import namespace="http://crd.gov.pl/xml/schematy/adres/2009/11/09/" schemaLocation="https://raw.githubusercontent.com/lagtukov/mrc/master/adr.xsd"/>
   <xs:import namespace="http://crd.gov.pl/xml/schematy/osoba/2009/11/16/" schemaLocation="https://raw.githubusercontent.com/lagtukov/mrc/master/oso.xsd"/>
-  <xs:element name="wpisy2">
+  <xs:element name="wpisy">
     <xs:complexType>
       <xs:sequence>
         <xs:element maxOccurs="unbounded" name="wpis">
