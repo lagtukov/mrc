@@ -344,7 +344,7 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Kod">
-    <xs:complexType mixed="true">
+    <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element ref="typ:KodResort"/>
         <xs:element ref="typ:Opis"/>
